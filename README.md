@@ -51,6 +51,7 @@ Layout: 3D Metal View:
 | **Cadence Innovus**     | Physical Design & GDSII |
 | **GTKWave**             | Waveform Analysis       |
 | **Vivado (Optional)**   | Functional Verification |
+[fifo-design-doc.pdf](https://github.com/user-attachments/files/23305795/fifo-design-doc.pdf)
 
 
 
