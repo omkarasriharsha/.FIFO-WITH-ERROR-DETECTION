@@ -53,6 +53,20 @@ Layout: 3D Metal View:
 | **Vivado (Optional)**   | Functional Verification |
 
 
+| **Parameter**            | **Standard FIFO Design**                     | **FIFO with Column Parity (Used in Project)**                                          |
+| ------------------------ | -------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Error Detection**      | None or simple parity bit                    | Column parity detection per bit column                                                 |
+| **Fault Coverage**       | Limited to single-bit or no detection        | Detects multiple fault types (stuck-at, soft errors, address errors, sense amp faults) |
+| **Area Overhead**        | ~3–12% depending on parity scheme            | **0.57% (256×32 config)**                                                              |
+| **Power Overhead**       | ~4–13% depending on scheme                   | **2.33% (256×32 DFF-based)**                                                           |
+| **Critical Path Impact** | 14–20% increase                              | **0% (off critical path)**                                                             |
+| **Hardware Resources**   | More flip-flops and LUTs                     | Minimal: 1 FF + 2 XOR gates per column                                                 |
+| **Detection Latency**    | Immediate (for horizontal parity)            | Requires FIFO to empty (unbounded latency)                                             |
+| **Complexity**           | Simple control logic                         | Slightly higher due to parity tracking                                                 |
+| **Resource Efficiency**  | Average                                      | **Excellent (5.6× area reduction)**                                                    |
+| **Use Case**             | General-purpose FIFO buffers                 | **Fault-tolerant, low-power embedded systems**                                         |
+| **Best For**             | Real-time systems needing instant error flag | **Communication, NoC, UART, IoT, DMA, burst-mode systems**                             |
+
 
 [fifo-design-doc.pdf](https://github.com/user-attachments/files/23305825/fifo-design-doc.pdf)
 [project1.pdf](https://github.com/user-attachments/files/23305851/project1.pdf)
